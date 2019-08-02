@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainFrame</class>
+ <widget class="QMainWindow" name="mainFrame">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>528</width>
+    <height>385</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="lbLogin">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>220</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Login:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbSenha">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>250</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Senha:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="tfLogin">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>230</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="tfSenha">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>260</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>528</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="mnArquivo">
+    <property name="title">
+     <string>Arquivo</string>
+    </property>
+    <addaction name="miSalvar"/>
+    <addaction name="miLimpar"/>
+    <addaction name="miCarregar"/>
+   </widget>
+   <widget class="QMenu" name="mnSobre">
+    <property name="title">
+     <string>Sobre</string>
+    </property>
+    <addaction name="miAjuda"/>
+   </widget>
+   <addaction name="mnArquivo"/>
+   <addaction name="mnSobre"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="miAjuda">
+   <property name="text">
+    <string>Ajuda</string>
+   </property>
+  </action>
+  <action name="miSalvar">
+   <property name="text">
+    <string>Salvar</string>
+   </property>
+  </action>
+  <action name="miLimpar">
+   <property name="text">
+    <string>Limpar</string>
+   </property>
+  </action>
+  <action name="miCarregar">
+   <property name="text">
+    <string>Carregar</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
