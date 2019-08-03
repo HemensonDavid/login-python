@@ -8,9 +8,19 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import pyqtSlot
+from datetime import datetime
+from time import sleep
 import sys
+import threading
 
 class Ui_mainFrame(object):
+
+    def __init__(self):
+        self.isLogado = False
+        t = threading.Thread(target=self.iniciarRelogio)
+        t.start()
+
     def setupUi(self, mainFrame):
         mainFrame.setObjectName("mainFrame")
         mainFrame.resize(528, 385)
@@ -39,14 +49,17 @@ class Ui_mainFrame(object):
         self.tfSenha.setGeometry(QtCore.QRect(100, 260, 113, 20))
         self.tfSenha.setObjectName("tfSenha")
 
-        self.lcdRelogio = QtWidgets.QLCDNumber(self.centralwidget)
+        self.lcdRelogio = QtWidgets.QLabel(self.centralwidget)
         self.lcdRelogio.setGeometry(QtCore.QRect(410, 300, 111, 41))
-        self.lcdRelogio.setSmallDecimalPoint(False)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.lcdRelogio.setFont(font)
         self.lcdRelogio.setObjectName("lcdRelogio")
 
         self.btEntrar = QtWidgets.QPushButton(self.centralwidget)
         self.btEntrar.setGeometry(QtCore.QRect(150, 290, 61, 29))
         self.btEntrar.setObjectName("btEntrar")
+        self.btEntrar.clicked.connect(self.logar)
 
         mainFrame.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(mainFrame)
@@ -90,6 +103,23 @@ class Ui_mainFrame(object):
         self.miSalvar.setText(_translate("mainFrame", "Salvar"))
         self.miLimpar.setText(_translate("mainFrame", "Limpar"))
         self.miCarregar.setText(_translate("mainFrame", "Carregar"))
+
+    def logar(self):
+        pass
+    
+    def iniciarRelogio(self):
+        while(True):
+            if self.isLogado == True:
+                break
+
+            now = datetime.now()
+            
+            hora = now.hour
+            minuto = now.minute
+            segundo = now.second
+            sleep(1)
+            
+            self.lcdRelogio.setText("{} : {} : {}".format(hora, minuto, segundo))
 
 def iniciarTela():
     app = QtWidgets.QApplication(sys.argv)

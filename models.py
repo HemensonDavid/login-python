@@ -10,6 +10,7 @@ def createTables():
             db.create_tables([User])
     except Exception as e:
         print(e.__str__())
+
 class BaseModel(peewee.Model):
     class Meta:
         database = db
