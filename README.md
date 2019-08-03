@@ -3,6 +3,7 @@ O projeto "login python" é uma forma de colocar em prática a teoria estudada
 
 ## Dependências:
 <code>pip install dyqt5</code>
+<code>pip install peewee</code>
 
 ### Log:
 02/08/2019 - início do projeto <br/>
