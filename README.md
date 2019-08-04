@@ -11,3 +11,4 @@ O projeto "login python" é uma forma de colocar em prática a teoria estudada
 03/08/2019 - criação do models (teste) com banco de dados <br/>
 03/08/2019 - criação do model usuario com integração de banco de dados<br/>
 03/08/2019 - adição do relógio na tela de login<br/> 
+04/04/2019 - evento de entrar no sistema implementado<br/>
