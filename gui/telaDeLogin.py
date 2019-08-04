@@ -11,6 +11,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import pyqtSlot
 from datetime import datetime
 from time import sleep
+from hashlib import sha256
+
 import sys
 import threading
 
@@ -110,8 +112,8 @@ class Ui_mainFrame(object):
 
     def event_logar(self):
         username = self.tfLogin.text()
-        password = self.tfSenha.text()
-        
+        password = sha256(self.tfSenha.text().encode('ascii')).hexdigest()
+        # inacabado       
     
     def event_iniciarRelogio(self):
         while(True):
