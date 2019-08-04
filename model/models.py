@@ -1,8 +1,8 @@
 import peewee
 
-PATH_DATABASE = r'gerenciamentoLogin.db'
+DATABASE = r'gerenciamentoLogin.db'
 
-db = peewee.SqliteDatabase(PATH_DATABASE)
+db = peewee.SqliteDatabase(DATABASE)
 
 def createTables():
     try:

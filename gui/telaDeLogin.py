@@ -12,6 +12,7 @@ from PyQt5.QtCore import pyqtSlot
 from datetime import datetime
 from time import sleep
 from hashlib import sha256
+from model.util import isAutenticarLogin
 
 import sys
 import threading
@@ -32,12 +33,12 @@ class Ui_mainFrame(object):
         self.centralwidget = QtWidgets.QWidget(mainFrame)
         self.centralwidget.setObjectName("centralwidget")
 
-        self.lbLogin = QtWidgets.QLabel(self.centralwidget)
-        self.lbLogin.setGeometry(QtCore.QRect(50, 220, 61, 41))
+        self.lbEmail = QtWidgets.QLabel(self.centralwidget)
+        self.lbEmail.setGeometry(QtCore.QRect(50, 220, 61, 41))
         font = QtGui.QFont()
         font.setPointSize(11)
-        self.lbLogin.setFont(font)
-        self.lbLogin.setObjectName("lbLogin")
+        self.lbEmail.setFont(font)
+        self.lbEmail.setObjectName("lbEmail")
 
         self.lbSenha = QtWidgets.QLabel(self.centralwidget)
         self.lbSenha.setGeometry(QtCore.QRect(50, 250, 71, 31))
@@ -46,9 +47,9 @@ class Ui_mainFrame(object):
         self.lbSenha.setFont(font)
         self.lbSenha.setObjectName("lbSenha")
 
-        self.tfLogin = QtWidgets.QLineEdit(self.centralwidget)
-        self.tfLogin.setGeometry(QtCore.QRect(100, 230, 113, 20))
-        self.tfLogin.setObjectName("tfLogin")
+        self.tfEmail = QtWidgets.QLineEdit(self.centralwidget)
+        self.tfEmail.setGeometry(QtCore.QRect(100, 230, 113, 20))
+        self.tfEmail.setObjectName("tfEmail")
 
         self.tfSenha = QtWidgets.QLineEdit(self.centralwidget)
         self.tfSenha.setGeometry(QtCore.QRect(100, 260, 113, 20))
@@ -100,7 +101,7 @@ class Ui_mainFrame(object):
     def retranslateUi(self, mainFrame):
         _translate = QtCore.QCoreApplication.translate
         mainFrame.setWindowTitle(_translate("mainFrame", "Login"))
-        self.lbLogin.setText(_translate("mainFrame", "Login:"))
+        self.lbEmail.setText(_translate("mainFrame", "Email:"))
         self.lbSenha.setText(_translate("mainFrame", "Senha:"))
         self.btEntrar.setText(_translate("mainFrame", "Entrar"))
         self.mnArquivo.setTitle(_translate("mainFrame", "Arquivo"))
@@ -111,9 +112,13 @@ class Ui_mainFrame(object):
         self.miCarregar.setText(_translate("mainFrame", "Carregar"))
 
     def event_logar(self):
-        username = self.tfLogin.text()
+        email = self.tfEmail.text()
         password = sha256(self.tfSenha.text().encode('ascii')).hexdigest()
-        # inacabado       
+
+        if isAutenticarLogin(email, password):
+            print('Entrou')
+        else:
+            print('Login/Senha incorreto(s)')
     
     def event_iniciarRelogio(self):
         while(True):

@@ -1,5 +1,5 @@
 from gui.telaDeLogin import iniciarTela
-from models import createTables
+from model.models import createTables
 
 #criando as tabelas
 createTables()
