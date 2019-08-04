@@ -18,7 +18,7 @@ class Ui_mainFrame(object):
 
     def __init__(self):
         self.statusThread = True
-        t = threading.Thread(target=self.iniciarRelogio)
+        t = threading.Thread(target=self.event_iniciarRelogio)
         t.start()
 
     def exitThread(self):
@@ -51,6 +51,7 @@ class Ui_mainFrame(object):
         self.tfSenha = QtWidgets.QLineEdit(self.centralwidget)
         self.tfSenha.setGeometry(QtCore.QRect(100, 260, 113, 20))
         self.tfSenha.setObjectName("tfSenha")
+        self.tfSenha.setEchoMode(QtWidgets.QLineEdit.Password)
 
         self.lcdRelogio = QtWidgets.QLabel(self.centralwidget)
         self.lcdRelogio.setGeometry(QtCore.QRect(410, 300, 111, 41))
@@ -62,7 +63,7 @@ class Ui_mainFrame(object):
         self.btEntrar = QtWidgets.QPushButton(self.centralwidget)
         self.btEntrar.setGeometry(QtCore.QRect(150, 290, 61, 29))
         self.btEntrar.setObjectName("btEntrar")
-        self.btEntrar.clicked.connect(self.logar)
+        self.btEntrar.clicked.connect(self.event_logar)
 
         mainFrame.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(mainFrame)
@@ -107,10 +108,12 @@ class Ui_mainFrame(object):
         self.miLimpar.setText(_translate("mainFrame", "Limpar"))
         self.miCarregar.setText(_translate("mainFrame", "Carregar"))
 
-    def logar(self):
-        pass
+    def event_logar(self):
+        username = self.tfLogin.text()
+        password = self.tfSenha.text()
+        
     
-    def iniciarRelogio(self):
+    def event_iniciarRelogio(self):
         while(True):
             if self.statusThread == False:
                 break
