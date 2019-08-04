@@ -17,9 +17,12 @@ import threading
 class Ui_mainFrame(object):
 
     def __init__(self):
-        self.isLogado = False
+        self.statusThread = True
         t = threading.Thread(target=self.iniciarRelogio)
         t.start()
+
+    def exitThread(self):
+        self.statusThread = False
 
     def setupUi(self, mainFrame):
         mainFrame.setObjectName("mainFrame")
@@ -109,7 +112,7 @@ class Ui_mainFrame(object):
     
     def iniciarRelogio(self):
         while(True):
-            if self.isLogado == True:
+            if self.statusThread == False:
                 break
 
             now = datetime.now()
@@ -127,4 +130,6 @@ def iniciarTela():
     ui = Ui_mainFrame()
     ui.setupUi(mainFrame)
     mainFrame.show()
-    sys.exit(app.exec_())
+    app.exec_()
+    ui.exitThread()
+    sys.exit()
