@@ -29,7 +29,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Login:</string>
+     <string>Email:</string>
     </property>
    </widget>
    <widget class="QLabel" name="lbSenha">
@@ -70,19 +70,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLCDNumber" name="lcdRelogio">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>300</y>
-      <width>111</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="smallDecimalPoint">
-     <bool>false</bool>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btEntrar">
     <property name="geometry">
      <rect>
@@ -94,6 +81,19 @@
     </property>
     <property name="text">
      <string>Entrar</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lcdRelogio">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>300</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>
