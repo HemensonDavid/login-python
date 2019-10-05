@@ -1,4 +1,4 @@
-from model.models import User
+from .models import User
 
 def isAutenticarLogin(email, password):
     '''

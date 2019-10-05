@@ -12,7 +12,7 @@ from PyQt5.QtCore import pyqtSlot
 from datetime import datetime
 from time import sleep
 from hashlib import sha256
-from model.util import isAutenticarLogin
+from ..model.util import isAutenticarLogin
 
 import sys
 import threading
@@ -111,18 +111,22 @@ class Ui_mainFrame(object):
         self.miLimpar.setText(_translate("mainFrame", "Limpar"))
         self.miCarregar.setText(_translate("mainFrame", "Carregar"))
 
+    #Eventos:
+
     def event_logar(self):
         email = self.tfEmail.text()
         password = sha256(self.tfSenha.text().encode('ascii')).hexdigest()
 
         if isAutenticarLogin(email, password):
             print('Entrou')
+            self.exitThread()
         else:
             print('Login/Senha incorreto(s)')
     
     def event_iniciarRelogio(self):
         while(True):
             if self.statusThread == False:
+                self.lcdRelogio.clear()
                 break
 
             now = datetime.now()
@@ -141,5 +145,7 @@ def iniciarTela():
     ui.setupUi(mainFrame)
     mainFrame.show()
     app.exec_()
+    
+    #on close
     ui.exitThread()
     sys.exit()
